@@ -1,6 +1,6 @@
 
-var splashScene = {
-  name: 'splashScene',
+var gameScene = {
+  name: 'gameScene',
   create: function (sceneParams) {
     this.container = new PIXI.Container()
     global.baseStage.addChild(this.container)
@@ -16,4 +16,4 @@ var splashScene = {
   },
 }
 
-module.exports = splashScene
+module.exports = gameScene

@@ -7,7 +7,7 @@ var windowLoad = require('window-load')
 var screenOrientation = require('screen-orientation')
 var ob = require('obscen')
 var loadingScene = require('./loadingScene')
-var splashScene = require('./splashScene')
+var gameScene = require('./gameScene')
 
 var fpsText
 var LANDSCAPE = 'landscape'
@@ -59,7 +59,7 @@ windowLoad(function () {
 
   sceneManager.setScenes([
     loadingScene,
-    splashScene,
+    gameScene,
     ])
 
   // init browserGameLoop
@@ -70,7 +70,7 @@ windowLoad(function () {
     input: function() {},
     update: function(step) {
       if (screenOrientation().direction === wantedScreenOrientation) {
-        // global.sceneManager.update(step)
+        global.sceneManager.update(step)
       }
     },
     render: function(ratio) {
@@ -82,7 +82,7 @@ windowLoad(function () {
           global.renderer.view.style.display = savedDisplayValue
         }
 
-        // global.sceneManager.draw(renderer, ratio)
+        global.sceneManager.draw(renderer, ratio)
         fpsText.text = 'fps: ' + Math.round(loop.getFps()) + '\nscreen orientation: ' + screenOrientation().direction
         global.renderer.render(global.appContainer)
 
@@ -115,7 +115,7 @@ windowLoad(function () {
       setUpGameRenderer()
 
       // start with load scene
-      // global.sceneManager.changeScene('loadingScene')
+      global.sceneManager.changeScene('loadingScene')
 
       // start!
       isGameShowing = true
