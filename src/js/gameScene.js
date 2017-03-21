@@ -1,3 +1,4 @@
+var gameVars = require('./gameVars')
 
 var gameScene = {
   name: 'gameScene',
