@@ -10,12 +10,13 @@ var loadingScene = require('./loadingScene')
 var gameScene = require('./gameScene')
 
 var fpsText
+var turnDeviceElement
+var savedDisplayValue
 var LANDSCAPE = 'landscape'
 var PORTRAIT = 'portrait'
 var wantedScreenOrientation = LANDSCAPE
-var savedDisplayValue
 var isGameShowing = false
-var turnDeviceElement
+var timestep = 1000 / 30
 
 var setUpGameRenderer = function () {
 
@@ -97,6 +98,7 @@ windowLoad(function () {
       }
     },
   })
+  loop.timestep = timestep
 
   global.sceneManager = sceneManager
   global.loop = loop
